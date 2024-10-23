@@ -1,13 +1,45 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet,NavLink } from 'react-router-dom'
 
 const Navbar = () => {
   return (<>
   
-    <div>
+    <nav className=' w-full flex flex-col md:flex-row md:justify-between md:p-8 items-center px-5 py-4 gap-5 shadow-lg rounded-md '>
       
-      Navbar
-    </div>
+        <div className=' text-xl font-medium'>
+         Busy Buy
+        </div>
+        <div className='gap-5 flex justify-between items-center text-lg'>
+          {/* each item */}
+          <NavLink to={'/'} >
+          <div className=' flex items-center justify-center gap-2'>
+            <img className=' w-6' src="https://cdn-icons-png.flaticon.com/128/619/619032.png" alt="" />
+            <h1 className='text-lg'> Home</h1> 
+          </div>
+
+          </NavLink>
+          <NavLink to={'/orders'} >
+          <div className=' flex items-center justify-center gap-2'>
+            <img className=' w-6' src="https://cdn-icons-png.flaticon.com/128/14266/14266271.png" alt="" />
+            <h1 className='text-lg'> My Orders</h1> 
+          </div>
+          </NavLink>
+          <NavLink to={'/cart'} >
+          <div className=' flex items-center justify-center gap-2'>
+            <img className=' w-6' src="https://cdn-icons-png.flaticon.com/128/9284/9284424.png" alt="" />
+            <h1 className='text-lg'> Cart</h1> 
+          </div>
+          </NavLink>
+          <NavLink to={'/'} >
+          <div className=' flex items-center justify-center gap-2'>
+            <img className=' w-6' src="https://cdn-icons-png.flaticon.com/128/1574/1574351.png" alt="" />
+            <h1 className='text-lg'> Logout</h1> 
+          </div>
+          </NavLink>
+          
+         
+        </div>
+    </nav>
     <Outlet/>
   </>
   )
