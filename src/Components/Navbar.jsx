@@ -13,26 +13,26 @@ const Navbar = () => {
           {/* each item */}
           <NavLink to={'/'} >
           <div className=' flex items-center justify-center gap-2'>
-            <img className=' w-6' src="https://cdn-icons-png.flaticon.com/128/619/619032.png" alt="" />
+            <img className=' w-6 hidden sm:inline' src="https://cdn-icons-png.flaticon.com/128/619/619032.png" alt="" />
             <h1 className='text-lg'> Home</h1> 
           </div>
 
           </NavLink>
           <NavLink to={'/orders'} >
           <div className=' flex items-center justify-center gap-2'>
-            <img className=' w-6' src="https://cdn-icons-png.flaticon.com/128/14266/14266271.png" alt="" />
+            <img className=' w-6 hidden sm:inline' src="https://cdn-icons-png.flaticon.com/128/14266/14266271.png" alt="" />
             <h1 className='text-lg'> My Orders</h1> 
           </div>
           </NavLink>
           <NavLink to={'/cart'} >
           <div className=' flex items-center justify-center gap-2'>
-            <img className=' w-6' src="https://cdn-icons-png.flaticon.com/128/9284/9284424.png" alt="" />
+            <img className=' w-6 hidden sm:inline' src="https://cdn-icons-png.flaticon.com/128/9284/9284424.png" alt="" />
             <h1 className='text-lg'> Cart</h1> 
           </div>
           </NavLink>
           <NavLink to={'/'} >
           <div className=' flex items-center justify-center gap-2'>
-            <img className=' w-6' src="https://cdn-icons-png.flaticon.com/128/1574/1574351.png" alt="" />
+            <img className=' w-6 hidden sm:inline' src="https://cdn-icons-png.flaticon.com/128/1574/1574351.png" alt="" />
             <h1 className='text-lg'> Logout</h1> 
           </div>
           </NavLink>
