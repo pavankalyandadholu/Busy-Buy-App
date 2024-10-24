@@ -1,10 +1,11 @@
-import React from 'react'
 import CartContextProvider from '../Contexts/cartContext'
 import AllCartCards from '../Components/AllCartCards'
-import Filters from '../Components/Filters'
-import CartTotalAmount from '../Components/CartTotalAmount'
+import CartTotalAmount from '../Components/CartTotalAmount';
+import { getProfileContextValues } from '../Contexts/profileContext';
 
 const Cart = () => {
+  const profileData= getProfileContextValues();
+    
   return (
     <CartContextProvider>
 

@@ -38,7 +38,7 @@ const Navbar = () => {
           </NavLink>
           <NavLink to={'/signin'} >
           <div className=' flex items-center justify-center gap-2'>
-            <img className=' w-6 hidden sm:inline' src="https://cdn-icons-png.flaticon.com/128/1574/1574351.png" alt="" />
+            <img className=' w-6 hidden sm:inline' src="https://cdn-icons-png.flaticon.com/128/4856/4856698.png" alt="" />
             <h1 className='text-lg'> SignIn</h1> 
           </div>
           </NavLink>

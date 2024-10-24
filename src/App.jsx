@@ -8,6 +8,8 @@ import Cart from './pages/Cart'
 import ProductContextProvider from './Contexts/productContext'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
+import ProfileContextProvider from './Contexts/profileContext'
+import ProtectedRoute from './Components/ProtectedRoute'
 function App() {
   const router=createBrowserRouter([
     {
@@ -18,7 +20,8 @@ function App() {
           element:<Home/>
         },{
           path:"orders",
-          element:<Orders/>
+          element:<ProtectedRoute><Orders/></ProtectedRoute>
+            
         },
         {
           path:'signin',
@@ -30,7 +33,8 @@ function App() {
         },
         {
           path:'cart',
-          element:<Cart/>
+          element:<ProtectedRoute><Cart/></ProtectedRoute>
+           
         }
       ]
 
@@ -38,10 +42,14 @@ function App() {
   ])
   return (
     <>
+<ProfileContextProvider>
+
     <ProductContextProvider>
     <RouterProvider router={router} />
 
     </ProductContextProvider>
+</ProfileContextProvider>
+
     </>
   )
 }
