@@ -8,7 +8,7 @@ const AllCartCards = () => {
         <div className=' flex items-center justify-center flex-wrap gap-8 mt-6'>
     
         {
-          data.cartProducts.map((p,i)=><CartCard key={i} product={p}/>)
+        data.cartProducts &&  data.cartProducts.map((p,i)=><CartCard key={i} product={p}/>)
         }
         </div>
       )

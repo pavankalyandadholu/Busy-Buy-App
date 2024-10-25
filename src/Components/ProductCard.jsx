@@ -9,7 +9,7 @@ const ProductCard = (props) => {
   const profileData= getProfileContextValues();
   function addtoCart(product){
     if(profileData.isLoggedIn){
-      productData.addToCart(product)
+      productData.addToCart(product,profileData.isLoggedIn)
     }else{
       console.log("user not logged in")
     

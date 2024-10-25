@@ -13,14 +13,12 @@ async function registerUser(userData){
     userData.cart=[];
     userData.orders=[];
     userProfiles.push(userData);
-    console.log(userProfiles);
   
  
 }
 
 async function loginUser(userData,setIsLoggedIn){
     const isUserExist= userProfiles.find(u=>u.email==userData.email);
-    console.log(isUserExist);
     if(isUserExist){
         setIsLoggedIn(isUserExist);
     }
