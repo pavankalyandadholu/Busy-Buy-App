@@ -8,6 +8,7 @@ import Cart from './pages/Cart'
 import ProductContextProvider from './Contexts/productContext'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
+import Logout from './pages/Logout'
 import ProfileContextProvider from './Contexts/profileContext'
 import ProtectedRoute from './Components/ProtectedRoute'
 function App() {
@@ -35,6 +36,9 @@ function App() {
           path:'cart',
           element:<ProtectedRoute><Cart/></ProtectedRoute>
            
+        },{
+          path:'logout',
+          element:<ProtectedRoute><Logout/></ProtectedRoute>
         }
       ]
 

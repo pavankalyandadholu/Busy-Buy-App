@@ -1,10 +1,10 @@
-const OrdersComponent = () => {
-  
+const OrdersComponent = ({orders}) => {
+  console.log("orders",orders)
     return (
     <div className=" flex items-center flex-col justify-center gap-4 mt-6"> 
         <div>
 <h1 className=" text-xl font-medium">
-Ordered On:- 2024-10-22
+Ordered On:- {orders.date}
 </h1>
         </div>
         <div>
@@ -18,7 +18,27 @@ Ordered On:- 2024-10-22
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b hover:bg-gray-100">
+            { 
+              orders.orders.map((o,i)=>
+                <tr className="border-b hover:bg-gray-100">
+                <td className=" px-4 py-3">
+                {o.title.slice(0,20)}
+                </td>
+                <td className=" px-4 py-3">
+                ₹ {Math.floor(o.price*84)}
+                </td>
+                <td className=" px-4 py-3">
+                {o.itemsCount}
+                </td>
+                <td className=" px-4 py-3">
+                ₹ {Math.floor(o.price*o.itemsCount*84)}
+                </td>
+              </tr>
+              )
+              }
+              
+            
+              {/* <tr className="border-b hover:bg-gray-100">
                 <td className=" px-4 py-3">
                 Fjallraven - Foldsack No....
                 </td>
@@ -31,35 +51,7 @@ Ordered On:- 2024-10-22
                 <td className=" px-4 py-3">
                 ₹ 3297
                 </td>
-              </tr>
-              <tr className="border-b hover:bg-gray-100">
-                <td className=" px-4 py-3">
-                Fjallraven - Foldsack No....
-                </td>
-                <td className=" px-4 py-3">
-                ₹ 1099
-                </td>
-                <td className=" px-4 py-3">
-                3
-                </td>
-                <td className=" px-4 py-3">
-                ₹ 3297
-                </td>
-              </tr>
-              <tr className="border-b hover:bg-gray-100">
-                <td className=" px-4 py-3">
-                Fjallraven - Foldsack No....
-                </td>
-                <td className=" px-4 py-3">
-                ₹ 1099
-                </td>
-                <td className=" px-4 py-3">
-                3
-                </td>
-                <td className=" px-4 py-3">
-                ₹ 3297
-                </td>
-              </tr>
+              </tr> */}
             </tbody>
           </table>
         </div>

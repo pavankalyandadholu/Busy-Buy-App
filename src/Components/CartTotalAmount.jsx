@@ -4,12 +4,15 @@ import { getCartProducts } from '../Contexts/cartContext'
 const CartTotalAmount = () => {
 const [sum, setSum] = useState(0)
   const {isLoggedIn}=getProfileContextValues();
-  const {cartItems}= getCartProducts();
+  const {setCartItems,cartItems,submitOrder}= getCartProducts();
   const cart= isLoggedIn.cart;
   useEffect(()=>{
     let itemsSum=0
-    cart.map((i)=>itemsSum+=i.itemsCount*Math.floor(i.price*84));
-    setSum(itemsSum)
+    if(cart){
+
+      cart.map((i)=>itemsSum+=i.itemsCount*Math.floor(i.price*84)); 
+      setSum(itemsSum)
+    }
 
   },[cartItems])
   return (
@@ -17,7 +20,7 @@ const [sum, setSum] = useState(0)
     <div className='m-4 p-3 flex items-center justify-center flex-col gap-5'>
 
     <h1 className=' text-xl font-medium '>Total Price:- &#8377;{sum}/-</h1>
-        <button className=' mx-auto border-2 rounded-md bg-blue-500 px-6 py-2'>Purchase</button>
+        <button onClick={()=>submitOrder(cartItems,isLoggedIn,setCartItems)} className=' mx-auto border-2 rounded-md bg-blue-500 px-6 py-2'>Purchase</button>
     </div>
 
 </div>

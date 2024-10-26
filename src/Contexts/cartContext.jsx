@@ -44,13 +44,29 @@ export function getCartProducts(){
         if(user.cart[existItemIndex].itemsCount<=1){
           user.cart.splice(existItemIndex,1);
         }else{
-
           user.cart[existItemIndex].itemsCount-=1;
         }
        }
        userProfiles[isExistUser]=user;
         setCartItems([...user.cart])
       }
+   }
+   function submitOrder(cart,user,setCartItems){
+    if(!cart.length){
+      return
+    }
+    const orders=cart.map(o=> {return {title:o.title,itemsCount:o.itemsCount,price:o.price}});
+
+    const isExistUser= userProfiles.indexOf(user);
+      if(isExistUser!=-1){
+       
+       userProfiles[isExistUser].orders.push({date:new Date().toLocaleDateString(),orders});
+       userProfiles[isExistUser].cart=[]
+       
+        setCartItems([])
+      }
+
+   
    }
  
    
@@ -65,7 +81,7 @@ export default function CartContextProvider(params) {
  
   
     return (
-        <cartContext.Provider value={{cartProducts:cartItems,addToCart,cartItems,setCartItems,removeFromCart,completelyRemoveFromCart}} >
+        <cartContext.Provider value={{cartProducts:cartItems,addToCart,cartItems,setCartItems,removeFromCart,completelyRemoveFromCart,submitOrder}} >
             {
                 params.children
             }

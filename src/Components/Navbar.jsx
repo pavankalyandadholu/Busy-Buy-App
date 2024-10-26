@@ -1,7 +1,8 @@
 import React from 'react'
 import { Outlet,NavLink } from 'react-router-dom'
-
+import { getProfileContextValues } from '../Contexts/profileContext'
 const Navbar = () => {
+  const {isLoggedIn}=getProfileContextValues();
   return (<>
   
     <nav className=' w-full flex flex-col flex-wrap md:flex-row md:justify-between md:p-8 items-center px-5 py-4 gap-5 shadow-lg rounded-md '>
@@ -30,18 +31,22 @@ const Navbar = () => {
             <h1 className='text-lg'> Cart</h1> 
           </div>
           </NavLink>
-          <NavLink to={'/'} >
+          {
+            isLoggedIn ? 
+          <NavLink to={'/logout'} >
           <div className=' flex items-center justify-center gap-2'>
             <img className=' w-6 hidden sm:inline' src="https://cdn-icons-png.flaticon.com/128/1574/1574351.png" alt="" />
             <h1 className='text-lg'> Logout</h1> 
           </div>
-          </NavLink>
+          </NavLink>:
           <NavLink to={'/signin'} >
           <div className=' flex items-center justify-center gap-2'>
             <img className=' w-6 hidden sm:inline' src="https://cdn-icons-png.flaticon.com/128/4856/4856698.png" alt="" />
             <h1 className='text-lg'> SignIn</h1> 
           </div>
           </NavLink>
+          }
+
         
           
          

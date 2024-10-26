@@ -1,9 +1,7 @@
-import React from 'react'
-
+import { getProfileContextValues } from '../Contexts/profileContext'
 const Logout = () => {
-  return (
-    <div>Logout</div>
-  )
+  const {setIsLoggedIn}= getProfileContextValues();
+  setIsLoggedIn(false)
 }
 
 export default Logout
